@@ -1,0 +1,6 @@
+content = """I used Chat GPT to help me understand  what each question was asking to understand the last problem.
+It calls me Cadence because I share a chatGPT account with my brother. 
+"""
+
+with open("acknowledgments.txt", "w") as f:
+    f.write(content)

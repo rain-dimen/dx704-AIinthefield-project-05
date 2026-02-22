@@ -1,0 +1,33 @@
+
+
+To solve this final set of state values, we need to account for the -1 cost incurred every time you move to a new state, combined with the final goal of reaching state C for the +100 reward. 
+
+I decided to use backward induction starting from C. 
+
+C is the terminal state: Value = 100.
+F can move to C: -1 + 100 = 99
+J (moves to F) = -1 +99 = 98
+I (Moves to J): -1 + 98 = 97
+G (Moves to I): -1 + 97 = 96
+H (Moves to I): -1 + 97 = 96
+D (Moves to G): -1 + 96 = 95
+E (Moves to D): -1 + 95 = 94
+B (Moves to D): -1 + 95 = 94
+S (Start - moves to B): -1 + 94 = 93
+A (Moves to S): -1 + 93 = 92
+
+
+
+and so on... please see final result below
+state	value
+A	    92
+B	    94
+C	    100
+D	    95
+E	    94
+F	    99
+G	    96
+H	    96
+I	    97
+J	    98
+S	    93

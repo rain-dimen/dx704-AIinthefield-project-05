@@ -1,0 +1,32 @@
+
+What I did here was backward induction and started from the bottom up.
+
+This should help determine what the optimal stragrty is for each player.
+
+P2 minimizes reward
+P1 maximizes reward
+
+workings:
+
+p1_1: P1 takes the last stick; P2 loses. Value = +1.
+p2_1: P2 takes the last stick; P1 loses. Value = -1.
+p1_2: P1 can choose to leave 1 stick (p2_1) or 0 sticks (Terminal +1). Since 1 > -1, P1 chooses terminal. Value = 1.
+p2_2: P2 can choose to leave 1 stick (p1_1) or 0 sticks (Terminal -1). Since -1 < 1, P2 chooses terminal. Value = -1.
+p1_3: P1 can move to p2_2 (value -1) or p2_1 (value -1). Both paths lead to a loss for P1. Value = -1.
+p2_3: P2 can move to p1_2 (value 1) or p1_1 (value 1). Both paths lead to a loss for P2. Value = 1.
+p1_4: P1 can move to p2_3 (value 1) or p2_2 (value -1). P1 chooses p2_3 to win. Value = 1.
+p2_4: P2 can move to p1_3 (value -1) or p1_2 (value 1). P2 chooses p1_3 to win. Value = -1.
+p1_5: P1 can move to p2_4 (value -1) or p2_3 (value 1). P1 chooses p2_3. Value = 1.
+p2_5: P2 can move to p1_4 (value 1) or p1_3 (value -1). P2 chooses p1_3. Value = -1.
+
+state	value
+p1_1	1
+p2_1	-1
+p1_2	1
+p2_2	-1
+p1_3	-1
+p2_3	1
+p1_4	1
+p2_4	-1
+p1_5	1
+p2_5	-1

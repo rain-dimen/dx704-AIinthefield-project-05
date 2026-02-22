@@ -1,0 +1,60 @@
+Based on the definition set by the problem, please find updated definitions for my context...
+
+Minimax:
+P1 (Rows 1&3 - States A, D, E, F, G): Maximizes
+P2 (Rows 2&4 - States B, C, H, I J): Minimizes
+
+Maximin:
+P1 (Rows 1&3 - States A, D, E, F, G): Minimizes
+P2 (Rows 2&4 - States B, C, H, I J): Maximizes
+
+1. Search: Maximum possible reward
+H: Max(+9, -1) = 9
+I: Max(+20, +1) = 20
+J: Max(+3, +2) = 3
+D: Max(H, I) = Max(9, 20) = 20
+E: Max(J, +5) = Max(3, 5) = 5
+F: Max(+1, -1) = 1
+G: Max(+1, 0) = 1
+B: Max(D, E) = Max(20, 5) = 20
+C: Max(F, G) = Max(1, 1) = 1
+A: Max(B, C) = Max(20, 1) = 20
+
+2. Minimax: P1  to maximize the score and P2 to minimize it.
+H: Min(+9, -1) = -1
+I: Min(+20, +1) = 1
+J: Min(+3, +2) = 2
+D: Max(H, I) = Max(-1, 1) = 1
+E: Max(J, +5) = Max(2, 5) = 5
+F: Max(+1, -1) = 1
+G: Max(+1, 0) = 1
+B: Min(D, E) = Min(1, 5) = 1
+C: Min(F, G) = Min(1, 1) = 1
+A: Max(B, C) = Max(1, 1) = 1
+
+Scenario 3: Maximin
+In this reversed scenario, 
+P1 to minimize the score and P2 wants to maximize it.
+H: Max(+9, -1) = 9
+I: Max(+20, +1) = 20
+J: Max(+3, +2) = 3
+D: Min(H, I) = Min(9, 20) = 9
+E: Min(J, +5) = Min(3, 5) = 3
+F: Min(+1, -1) = -1
+G: Min(1, 0) = 0
+B: Max(D, E) = Max(9, 3) = 9
+C: Max(F, G) = Max(-1, 0) = 0
+A: Min(B, C) = Min(9, 0) = 0
+
+
+state	search_value	minimax_value	maximin_value
+A	    20	                1	            0
+B	    20	                1	            9
+C	    1	                1	            0
+D	    20	                1               9
+E	    5	                5	            3
+F	    1	                1           	-1
+G	    1	                1	            0
+H	    9	                -1	            9
+I	    20	                1           	20
+J	    3	                2           	3
